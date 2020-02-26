@@ -17,19 +17,22 @@ object Base24 {
             val j = i * 4
             val mask = 0xFFL
             val b3 = data.get(j).toLong() and mask
-            val b2 = data.get(j + 1).toLong()
-            val b1 = data.get(j + 2).toLong()
-            val b0 = data.get(j + 3).toLong()
+            val b2 = data.get(j + 1).toLong() and mask
+            val b1 = data.get(j + 2).toLong() and mask
+            val b0 = data.get(j + 3).toLong() and mask
 
             var value: Long = 0xFFFFFFFFL and
                 ((b3 shl 24) or (b2 shl 16) or (b1 shl 8) or b0)
 
-            for (j in 0 until 7) {
+
+            var subResult = StringBuilder()
+            for (k in 0 until 7) {
                 val idx = value % alphabetLength
                 value = value / alphabetLength
 
-                result.insert(0, alphabet.get(idx.toInt()))
+                subResult.insert(0, alphabet.get(idx.toInt()))
             }
+            result.append(subResult)
         }
 
         return result.toString()
