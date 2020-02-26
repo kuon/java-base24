@@ -1,9 +1,14 @@
-package ch.kuon.base24
+package ch.kuon.commons
 
 
 object Base24 {
     private val alphabet = "ZAC2B3EF4GH5TK67P8RS9WXY"
 
+    /**
+     * Encode bytes to a string using base24
+     * @param data A byte array. Length must be multiple of 4.
+     * @return The encoded string
+     */
     fun encode24(data: ByteArray): String {
         val alphabetLength = alphabet.length
         val dataLength = data.size
@@ -38,7 +43,11 @@ object Base24 {
         return result.toString()
     }
 
-
+    /**
+     * Decode a string to byete arrary using base24
+     * @param data A string encoded un base24. Length must be multiple of 7
+     * @return The decoded bytes
+     */
     fun decode24(data: String): ByteArray {
         val alphabetLength = alphabet.length
         val dataLength = data.length

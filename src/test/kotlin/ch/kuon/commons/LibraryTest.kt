@@ -1,9 +1,9 @@
-package ch.kuon.base24
+package ch.kuon.commons
 
 import kotlin.test.Test
 import kotlin.test.*
-import ch.kuon.base24.Base24.encode24
-import ch.kuon.base24.Base24.decode24
+import ch.kuon.commons.Base24.encode24
+import ch.kuon.commons.Base24.decode24
 import java.security.SecureRandom
 
 // A few hard coded values
