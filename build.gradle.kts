@@ -65,7 +65,7 @@ bintray {
     setPublications("maven")
     pkg(delegateClosureOf<BintrayExtension.PackageConfig> {
         repo = "java"
-        name = "bas24"
+        name = "base24"
         userOrg = "kuon"
         websiteUrl = "https://github.com/kuon/java-base24"
         vcsUrl = "https://github.com/kuon/java-base24.git"
