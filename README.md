@@ -44,7 +44,7 @@ object ch.kuon.commons.Base24
 fun encode24(data: ByteArray): String
 
 /**
- * Decode a string to byete arrary using base24
+ * Decode a string to byte array using base24
  * @param data A string encoded un base24. Length must be multiple of 7
  * @return The decoded bytes
  */
