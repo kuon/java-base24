@@ -17,9 +17,13 @@ val values = mapOf(
     "88553311" to "5YEATXA",
     "FFFFFFFF" to "X5GGBH7",
     "FFFFFFFFFFFFFFFFFFFFFFFF" to "X5GGBH7X5GGBH7X5GGBH7",
+    "FFFFFFFFFFFFFFFFFFFFFFFF" to "x5ggbh7x5ggbh7x5ggbh7",
     "1234567887654321" to "A64KHWZ5WEPAGG",
+    "1234567887654321" to "a64khwz5wepagg",
     "FF0001FF001101FF01023399" to "XGES63FZZ247C7ZC2ZA6G",
-    "25896984125478546598563251452658" to "2FC28KTA66WRST4XAHRRCF237S8Z"
+    "FF0001FF001101FF01023399" to "xges63fzz247c7zc2za6g",
+    "25896984125478546598563251452658" to "2FC28KTA66WRST4XAHRRCF237S8Z",
+    "25896984125478546598563251452658" to "2fc28kta66wrst4xahrrcf237s8z"
 )
 
 class LibraryTest {
@@ -40,7 +44,7 @@ class LibraryTest {
 
     @Test fun testFixed() {
         values.forEach { (k, v) ->
-            assertEquals(v, encode(k))
+            assertEquals(v.toUpperCase(), encode(k))
             assertEquals(k, decode(v))
         }
     }

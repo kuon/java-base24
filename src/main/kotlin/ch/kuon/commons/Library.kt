@@ -3,6 +3,21 @@ package ch.kuon.commons
 
 object Base24 {
     private val alphabet = "ZAC2B3EF4GH5TK67P8RS9WXY"
+    private val alphabetLength = 24
+    private val encodeMap: HashMap<Int, Char>
+    private val decodeMap: HashMap<Char, Int>
+
+    init {
+        encodeMap = hashMapOf<Int, Char>()
+        decodeMap = hashMapOf<Char, Int>()
+        var idx = 0
+        alphabet.forEach { char ->
+            encodeMap.put(idx, char)
+            decodeMap.put(char, idx)
+            decodeMap.put(char.toLowerCase(), idx)
+            idx++
+        }
+    }
 
     /**
      * Encode bytes to a string using base24
@@ -10,7 +25,6 @@ object Base24 {
      * @return The encoded string
      */
     fun encode24(data: ByteArray): String {
-        val alphabetLength = alphabet.length
         val dataLength = data.size
         if (dataLength % 4 != 0) {
             throw Exception("Encode 24 data length " +
@@ -35,7 +49,7 @@ object Base24 {
                 val idx = value % alphabetLength
                 value = value / alphabetLength
 
-                subResult.insert(0, alphabet.get(idx.toInt()))
+                subResult.insert(0, encodeMap.get(idx.toInt()))
             }
             result.append(subResult)
         }
@@ -49,7 +63,6 @@ object Base24 {
      * @return The decoded bytes
      */
     fun decode24(data: String): ByteArray {
-        val alphabetLength = alphabet.length
         val dataLength = data.length
         if (dataLength % 7 != 0) {
             throw Exception("Decode 24 data length " +
@@ -64,8 +77,12 @@ object Base24 {
             var value: Long = 0
 
             subData.forEach { s ->
-                val idx = alphabet.indexOf(s)
-                value = alphabetLength * value + idx
+                val idx = decodeMap.get(s)
+                if (idx == null) {
+                    throw Exception("Unsupported character in input: " + s)
+                } else {
+                    value = alphabetLength * value + idx
+                }
             }
 
             val mask = 0xFFL
@@ -80,6 +97,5 @@ object Base24 {
         }
 
         return bytes.toByteArray()
-
     }
 }
