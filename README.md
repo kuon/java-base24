@@ -1,6 +1,7 @@
 # Base24 encoder/decoder for Java
 
-This library is an encoder/decoder for the Base24 encoding written in Kotlin.
+This library is an encoder/decoder for the
+[Base24 encoding](https://www.kuon.ch/post/2020-02-27-base24/) written in Kotlin.
 
 ## Usage
 
