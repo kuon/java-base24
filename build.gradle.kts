@@ -3,7 +3,7 @@ import com.jfrog.bintray.gradle.BintrayPlugin
 
 val projectGroup = "ch.kuon.commons"
 // Also update version in README.md
-val projectVersion = "0.1.0"
+val projectVersion = "0.1.1"
 val projectName = "base24"
 
 plugins {
@@ -75,5 +75,8 @@ bintray {
         setLicenses("MIT", "Apache-2.0")
         desc = description
         publicDownloadNumbers = true
+        version(delegateClosureOf<BintrayExtension.VersionConfig> {
+            name = projectVersion
+        })
     })
 }

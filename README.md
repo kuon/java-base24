@@ -1,3 +1,7 @@
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kuon/java-base24/Java%20CI)
+![Version](https://img.shields.io/bintray/v/kuon/java/base24)
+![License](https://img.shields.io/badge/license-Apache%202.0/MIT-0b398e)
+
 # Base24 encoder/decoder for Java
 
 This library is an encoder/decoder for the
@@ -25,7 +29,7 @@ Add the following dependencies:
 ```kotlin
 dependencies {
     // ...
-    implementation("ch.kuon.commons:base24:0.1.0")
+    implementation("ch.kuon.commons:base24:0.1.1")
     // ...
 }
 ```
