@@ -7,23 +7,23 @@ import ch.kuon.commons.Base24.decode24
 import java.security.SecureRandom
 
 // A few hard coded values
-val values = mapOf(
-    "00000000" to "ZZZZZZZ",
-    "000000000000000000000000" to "ZZZZZZZZZZZZZZZZZZZZZ",
-    "00000001" to "ZZZZZZA",
-    "000000010000000100000001" to "ZZZZZZAZZZZZZAZZZZZZA",
-    "00000010" to "ZZZZZZP",
-    "00000030" to "ZZZZZCZ",
-    "88553311" to "5YEATXA",
-    "FFFFFFFF" to "X5GGBH7",
-    "FFFFFFFFFFFFFFFFFFFFFFFF" to "X5GGBH7X5GGBH7X5GGBH7",
-    "FFFFFFFFFFFFFFFFFFFFFFFF" to "x5ggbh7x5ggbh7x5ggbh7",
-    "1234567887654321" to "A64KHWZ5WEPAGG",
-    "1234567887654321" to "a64khwz5wepagg",
-    "FF0001FF001101FF01023399" to "XGES63FZZ247C7ZC2ZA6G",
-    "FF0001FF001101FF01023399" to "xges63fzz247c7zc2za6g",
-    "25896984125478546598563251452658" to "2FC28KTA66WRST4XAHRRCF237S8Z",
-    "25896984125478546598563251452658" to "2fc28kta66wrst4xahrrcf237s8z"
+val values = listOf(
+    "00000000", "ZZZZZZZ",
+    "000000000000000000000000", "ZZZZZZZZZZZZZZZZZZZZZ",
+    "00000001", "ZZZZZZA",
+    "000000010000000100000001", "ZZZZZZAZZZZZZAZZZZZZA",
+    "00000010", "ZZZZZZP",
+    "00000030", "ZZZZZCZ",
+    "88553311", "5YEATXA",
+    "FFFFFFFF", "X5GGBH7",
+    "FFFFFFFFFFFFFFFFFFFFFFFF", "X5GGBH7X5GGBH7X5GGBH7",
+    "FFFFFFFFFFFFFFFFFFFFFFFF", "x5ggbh7x5ggbh7x5ggbh7",
+    "1234567887654321", "A64KHWZ5WEPAGG",
+    "1234567887654321", "a64khwz5wepagg",
+    "FF0001FF001101FF01023399", "XGES63FZZ247C7ZC2ZA6G",
+    "FF0001FF001101FF01023399", "xges63fzz247c7zc2za6g",
+    "25896984125478546598563251452658", "2FC28KTA66WRST4XAHRRCF237S8Z",
+    "25896984125478546598563251452658", "2fc28kta66wrst4xahrrcf237s8z"
 )
 
 class LibraryTest {
@@ -43,7 +43,9 @@ class LibraryTest {
     }
 
     @Test fun testFixed() {
-        values.forEach { (k, v) ->
+        for (i in 0 until values.size / 2) {
+            val k = values.get(i * 2)
+            val v = values.get(i * 2 + 1)
             assertEquals(v.toUpperCase(), encode(k))
             assertEquals(k, decode(v))
         }
