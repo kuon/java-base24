@@ -9,28 +9,6 @@ https://github.com/kuon/WhyILeftGithub/blob/main/README.md
 
 ----
 
-
-# THIS REPOSITORY HAS MOVED
-
-New URL: https://git.goyman.com/kuon/java-base24
-
-Why I moved everything out of GitHub:
-
-https://github.com/kuon/WhyILeftGithub/blob/main/README.md
-
-----
-
-
-# THIS REPOSITORY HAS MOVED
-
-New URL: https://git.goyman.com/kuon/java-base24
-
-Why I moved everything out of GitHub:
-
-https://github.com/kuon/WhyILeftGithub/blob/main/README.md
-
-----
-
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kuon/java-base24/Java%20CI)
 ![Version](https://img.shields.io/bintray/v/kuon/java/base24)
 ![License](https://img.shields.io/badge/license-Apache%202.0/MIT-0b398e)
