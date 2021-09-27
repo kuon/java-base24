@@ -23,5 +23,5 @@ clean:
 
 .PHONY: publish
 publish:
-	gradle bintrayUpload
+	./gradlew publishMavenJavaPublicationToMavenLocal
 

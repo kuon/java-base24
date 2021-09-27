@@ -1,6 +1,3 @@
-import com.jfrog.bintray.gradle.BintrayExtension
-import com.jfrog.bintray.gradle.BintrayPlugin
-
 val projectGroup = "ch.kuon.commons"
 // Also update version in README.md
 val projectVersion = "0.1.1"
@@ -12,11 +9,11 @@ plugins {
 
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
+
+    signing
+
     // Create maven artefacts
     `maven-publish`
-
-    // Bintray for publication
-    id("com.jfrog.bintray") version "1.8.4"
 }
 
 repositories {
@@ -48,7 +45,7 @@ tasks {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
+        create<MavenPublication>("mavenJava") {
             from(components["java"])
             groupId = projectGroup
             artifactId = projectName
@@ -57,26 +54,8 @@ publishing {
     }
 }
 
-
-bintray {
-    user = System.getenv("BINTRAY_USERNAME")
-    key = System.getenv("BINTRAY_API_KEY")
-    publish = true
-    setPublications("maven")
-    pkg(delegateClosureOf<BintrayExtension.PackageConfig> {
-        repo = "java"
-        name = "base24"
-        userOrg = "kuon"
-        websiteUrl = "https://github.com/kuon/java-base24"
-        vcsUrl = "https://github.com/kuon/java-base24.git"
-        githubRepo = "kuon/java-base24"
-        description = "Base24 encoder and decoder for java written in Kotlin"
-        setLabels("kotlin")
-        setLicenses("MIT", "Apache-2.0")
-        desc = description
-        publicDownloadNumbers = true
-        version(delegateClosureOf<BintrayExtension.VersionConfig> {
-            name = projectVersion
-        })
-    })
+signing {
+    useGpgCmd()
+    sign(publishing.publications["mavenJava"])
 }
+
