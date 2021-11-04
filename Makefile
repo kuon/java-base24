@@ -23,5 +23,5 @@ clean:
 
 .PHONY: publish
 publish:
-	./gradlew publishMavenJavaPublicationToMavenLocal
+	./gradlew publishMavenJavaPublicationToMavenRepository
 

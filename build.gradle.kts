@@ -52,6 +52,11 @@ publishing {
             version = projectVersion
         }
     }
+    repositories {
+        maven {
+            url =  uri(layout.buildDirectory.dir("repo"))
+        }
+    }
 }
 
 signing {
