@@ -1,5 +1,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kuon/java-base24/Java%20CI)
-![Version](https://img.shields.io/bintray/v/kuon/java/base24)
+![Version](
+https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fmaven.goyman.com%2Fch%2Fkuon%2Fcommons%2Fbase24%2Fmaven-metadata.xml
+)
 ![License](https://img.shields.io/badge/license-Apache%202.0/MIT-0b398e)
 
 # Base24 encoder/decoder for Java
